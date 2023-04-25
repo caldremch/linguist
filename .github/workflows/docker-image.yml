@@ -24,7 +24,9 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Docker Build & Push Action
-      uses: mr-smithers-excellent/docker-build-push@v6.2
+      uses: docker/build-push-action@v4.0.0
       with:
        platforms: linux/amd64,linux/arm64
        tags: caldremch/linguist:latest
+       context: .
+       push: true
